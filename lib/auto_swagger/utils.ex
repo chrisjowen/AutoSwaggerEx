@@ -4,7 +4,7 @@ defmodule AutoSwaggerEx.Utils do
   use PhoenixSwagger
 
   def add_success_type(po, annotation) do
-    case Annotations.value(annotation, :out) do
+    case Annotations.value(annotation, :response) do
       output when output in [nil, :object] -> Path.response(po, 200, "OK")
       output -> Path.response(po, 200, "OK", Schema.ref(output))
     end
@@ -57,7 +57,7 @@ defmodule AutoSwaggerEx.Utils do
   end
 
   def get_body_param(annotation, verb) do
-    case {Annotations.value(annotation, :in), verb} do
+    case {Annotations.value(annotation, :request), verb} do
       {nil, verb} when verb in [:post, :put] ->
         [
           %Path.Parameter{

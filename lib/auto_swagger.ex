@@ -19,7 +19,7 @@ defmodule AutoSwaggerEx  do
         schemas = Keyword.get(unquote(opts), :schemas, %{})
         Map.merge(ecto, schemas)
       end
-    end
+    ende
   end
 
   defmacro __before_compile__(_env) do
