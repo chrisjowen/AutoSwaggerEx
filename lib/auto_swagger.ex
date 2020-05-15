@@ -12,7 +12,7 @@ defmodule AutoSwaggerEx  do
       @router Keyword.get(unquote(opts), :router)
       @before_compile {unquote(__MODULE__), :__before_compile__}
 
-      def swagger_defenitions do
+      def swagger_definitions do
         Keyword.get(unquote(opts), :ecto, [])
         ecto =  Keyword.get(unquote(opts), :ecto, [])
                 |> Enum.reduce(%{}, &(Map.merge(&2, Generators.Schema.generate(&1))))

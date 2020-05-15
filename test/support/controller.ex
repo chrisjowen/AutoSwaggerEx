@@ -1,7 +1,7 @@
 defmodule Test.TestController do
   import Plug.Conn
   use Phoenix.Controller, namespace: Test
-  use AutoSwaggerEx, router: Test.Router, ecto: [Test.Schema]
+  use AutoSwaggerEx, router: Test.Router, ecto: [{Test.Schema, []}]
 
 
   @swagger true
