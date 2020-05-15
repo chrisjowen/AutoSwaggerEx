@@ -1,9 +1,9 @@
-defmodule AutoSwagger.MixProject do
+defmodule AutoSwaggerEx.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :auto_swagger,
+      app: :auto_swagger_ex,
       version: "0.1.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),

@@ -1,13 +1,13 @@
-defmodule AutoSwagger  do
+defmodule AutoSwaggerEx  do
   use PhoenixSwagger
-  import AutoSwagger.Generators.Operation
+  import AutoSwaggerEx.Generators.Operation
 
   defmacro __using__(opts) do
     quote do
       use PhoenixSwagger
       use Rubbergloves.Annotatable, [:swagger]
-      alias AutoSwagger.Generators
-      require AutoSwagger.Generators.Operation
+      alias AutoSwaggerEx.Generators
+      require AutoSwaggerEx.Generators.Operation
 
       @router Keyword.get(unquote(opts), :router)
       @before_compile {unquote(__MODULE__), :__before_compile__}
@@ -27,7 +27,7 @@ defmodule AutoSwagger  do
       @annotations
       |> Enum.each(fn {method, annotations} ->
         annotation = Enum.find(annotations, &(&1.annotation == :swagger))
-        AutoSwagger.Generators.Operation.generate(method, @router.__routes__(),annotation)
+        AutoSwaggerEx.Generators.Operation.generate(method, @router.__routes__(),annotation)
       end)
     end
   end

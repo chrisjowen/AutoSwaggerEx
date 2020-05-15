@@ -1,4 +1,4 @@
-defmodule AutoSwagger.Generators.Schema do
+defmodule AutoSwaggerEx.Generators.Schema do
   use PhoenixSwagger
 
 

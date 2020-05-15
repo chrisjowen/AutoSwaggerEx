@@ -1,7 +1,7 @@
-defmodule AutoSwagger.Generators.Operation  do
+defmodule AutoSwaggerEx.Generators.Operation  do
   use PhoenixSwagger
-  alias AutoSwagger.Annotations
-  alias AutoSwagger.Utils
+  alias AutoSwaggerEx.Annotations
+  alias AutoSwaggerEx.Utils
 
 
   defmacro generate(method, routes, annotation) do

@@ -1,5 +1,5 @@
-defmodule AutoSwagger.Utils do
-  alias AutoSwagger.Annotations
+defmodule AutoSwaggerEx.Utils do
+  alias AutoSwaggerEx.Annotations
   alias PhoenixSwagger.Path
   use PhoenixSwagger
 
@@ -26,7 +26,7 @@ defmodule AutoSwagger.Utils do
   def controller_name(path) do
     path
     |> Atom.to_string()
-    |> String.replace("Elixir.AutoSwaggerWeb.", "")
+    |> String.replace("Elixir.AutoSwaggerExWeb.", "")
     |> String.replace("Controller", "")
   end
 

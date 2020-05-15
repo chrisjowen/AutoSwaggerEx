@@ -1,4 +1,4 @@
-defmodule AutoSwaggerTest do
+defmodule AutoSwaggerExTest do
   use ExUnit.Case
   alias Test.TestController
 

@@ -1,4 +1,4 @@
-defmodule AutoSwagger.Annotations do
+defmodule AutoSwaggerEx.Annotations do
   def value(_, _, default \\ nil)
   def value(nil, _, default), do: default
   def value(%{value: true}, _, default), do: default
