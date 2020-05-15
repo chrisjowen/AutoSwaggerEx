@@ -1,0 +1,21 @@
+{
+    "version": "0.0.2",
+    "updated_at": "2020-04-16T05:21:44.796509",
+    "start": "2020-04-13T10:32:49.550886",
+    "tda_id": "",
+    "sign_offs": [],
+    "require_tda": false,
+    "remarks": "",
+    "related_releases": [],
+    "phase": "AWAITING_GREEN_CHANNEL",
+    "nature_of_change": "Label Change",
+    "id": 2,
+    "expected_release_date": "2020-04-16T18:30:00.000000",
+    "evidences": [],
+    "dispensations": [],
+    "deleted": false,
+    "criticality": "minor",
+    "change_request_no": "12345",
+    "archive": "",
+    "app_id": 1
+}
