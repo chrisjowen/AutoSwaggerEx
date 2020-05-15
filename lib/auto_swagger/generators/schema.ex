@@ -1,10 +1,12 @@
-defmodule PhxSwaggerAnnotations.Swagger.EctoToSwagger do
+defmodule AutoSwagger.Generators.Schema do
   use PhoenixSwagger
 
-  def generate(module) when is_atom(module) do
+
+  def generate({module, opts}),  do: generate(module, opts)
+  def generate(module, opts \\ []) when is_atom(module) do
       name = module_name(module)
       plural = Inflex.pluralize(name)
-      ignore = Schemas.ignore(module)
+      ignore = Keyword.get(opts, :ignore, [])
 
       fields =
         module.__schema__(:fields)

@@ -1,5 +1,5 @@
-defmodule PhxSwaggerAnnotations.Swagger.RouteBuilder do
-  alias PhxSwaggerAnnotations.Swagger.Annotations
+defmodule AutoSwagger.Utils do
+  alias AutoSwagger.Annotations
   alias PhoenixSwagger.Path
   use PhoenixSwagger
 
@@ -11,7 +11,6 @@ defmodule PhxSwaggerAnnotations.Swagger.RouteBuilder do
   end
 
   def route_params(path) do
-    {path, parameters} =
       path
       |> String.split("/", trim: true)
       |> Enum.reduce({"", []}, fn part, {path, parameters} ->
@@ -27,7 +26,7 @@ defmodule PhxSwaggerAnnotations.Swagger.RouteBuilder do
   def controller_name(path) do
     path
     |> Atom.to_string()
-    |> String.replace("Elixir.PhxSwaggerAnnotationsWeb.", "")
+    |> String.replace("Elixir.AutoSwaggerWeb.", "")
     |> String.replace("Controller", "")
   end
 
@@ -41,19 +40,19 @@ defmodule PhxSwaggerAnnotations.Swagger.RouteBuilder do
   def get_query_parameters(annotation, parameters) do
     parameters
     |> Enum.map(fn p ->
-      explicit_param = Annotations.value(annotation, :parameters, [])
-      |> Enum.find(fn p -> p.name == p end)
-      |> case do
-        nil ->
-          %Path.Parameter{
-            description: p,
-            in: "parameter",
-            name: p,
-            required: true,
-            type: "string"
-          }
-        param -> param
-      end
+        Annotations.value(annotation, :parameters, [])
+        |> Enum.find(fn p -> p.name == p end)
+        |> case do
+          nil ->
+            %Path.Parameter{
+              description: p,
+              in: "parameter",
+              name: p,
+              required: true,
+              type: "string"
+            }
+          param -> param
+        end
     end)
   end
 
