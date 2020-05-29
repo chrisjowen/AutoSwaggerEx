@@ -3,6 +3,6 @@ defmodule AutoSwaggerExTest do
   alias Test.TestController
 
   test "greets the world" do
-    TestController.swagger_defenitions |> IO.inspect
+    TestController.swagger_definitions |> IO.inspect
   end
 end

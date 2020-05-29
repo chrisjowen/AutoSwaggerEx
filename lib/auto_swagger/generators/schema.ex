@@ -76,7 +76,7 @@ defmodule AutoSwaggerEx.Generators.Schema do
       :id -> "integer"
       Elixir.Comeonin.Ecto.Password -> "string"
       :naive_datetime -> "string"
-      {:array, :map} -> "array"
+      {:array, _inner_type} -> "array"
       _ -> Atom.to_string(type)
     end
   end
